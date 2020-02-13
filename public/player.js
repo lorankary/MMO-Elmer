@@ -57,9 +57,8 @@ class Player extends MMOC{
 
     this.setX(this.loc.x);
     this.setY(this.loc.y);
-    this.trail.push(this.loc.copy());//pushes copy of location vector to trail
-    if(this.trail.length > 20)
-        this.trail.shift();     // remove first element of trail
+    // this.trail.push(this.loc.copy());//pushes copy of location vector to trail
+    // console.log(this.trail.length);
     this.setOther("trail",this.trail);
     this.setX(this.loc.x);
     this.setY(this.loc.y);
@@ -74,6 +73,8 @@ class Player extends MMOC{
     if(this.timer === 2){
       this.timer = 0;
       this.trail.push(this.loc.copy());//pushes copy of location vector to trail
+      if(this.trail.length > 200)
+          this.trail.shift();     // remove first element of trail
       if(this.ws.readyState == 1 ) this.sendPlayerData();
     }
   }
@@ -153,7 +154,7 @@ class Player extends MMOC{
         var distanceSquared = Math.pow((trail[t].x-this.loc.x),2) + Math.pow((trail[t].y-this.loc.y),2);
         if(distanceSquared <= 100){
           this.isDead = true;
-          console.log(this.isDead);
+          // console.log(this.isDead);
           this.setIsDead(this.isDead);
           this.vel.multiply(0);
           //console.log(this.isDead);
