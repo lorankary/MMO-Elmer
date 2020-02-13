@@ -25,7 +25,7 @@ function init(){
  //console.log(multiplayer);
  setInterval(animate,17);
  setInterval(()=>{
-   console.log(frameCount);
+   // console.log(frameCount);
    frameCount=0;
 
  },1000);

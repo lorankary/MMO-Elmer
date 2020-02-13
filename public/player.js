@@ -10,7 +10,7 @@ class Player extends MMOC{
     this.checkEdges();
     this.update();
     if(this.won == true){
-      console.log("has won ");
+      // console.log("has won ");
       ctx.fillStyle = 'rgba(225,215,0,.9)';
       ctx.beginPath();
       ctx.arc(this.loc.x,this.loc.y,this.rad,Math.PI*2,0,false);
@@ -20,7 +20,7 @@ class Player extends MMOC{
       ctx.fillText("YOU WON",canvas.width/2,canvas.height/2);
     }
     if(this.lost == true){
-      console.log("has lost");
+      // console.log("has lost");
       ctx.fillStyle = 'rgba(139,0,0,.9)';
       ctx.beginPath();
       ctx.arc(this.loc.x,this.loc.y,this.rad,Math.PI*2,0,false);
@@ -120,6 +120,8 @@ class Player extends MMOC{
 
   restart(){
     console.log("restart");
+    this.won = this.lost = false;
+
     var vec = new JSVector(0,100);
     vec.rotate(Math.random()* (2* Math.PI));
     vec.x+= canvas.width/2;
@@ -133,6 +135,7 @@ class Player extends MMOC{
     this.trail = [];
     this.setOther("trail",this.trail);
     this.isDead = false;
+    this.setIsDead(false);
     this.timer = 0;
     this.won = false;
     this.lost = false;

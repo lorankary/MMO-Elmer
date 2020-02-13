@@ -31,6 +31,8 @@ app.get("/restart",function(req, resp){
 app.ws('/ws', function(ws, req) {
     let playerID;
 
+    console.log("new player");
+
     // restarting when player connects
     for(client of websocketServer.getWss().clients){
       if(client.readyState === 1){
@@ -39,6 +41,7 @@ app.ws('/ws', function(ws, req) {
         }));
       }
     }
+    DATA = {};
   //  console.log(websocketServer.getWss().clients);
 
 
@@ -72,7 +75,7 @@ app.ws('/ws', function(ws, req) {
 
     // On close event
     ws.on('close', function() {
-      //console.log("end"+this.playerID);
+      console.log("end "+this.playerID);
       delete DATA[this.playerID];
       // for(var player in DATA){
       //   //console.log(player);

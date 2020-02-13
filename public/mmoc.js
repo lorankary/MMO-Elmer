@@ -49,13 +49,15 @@ let MMOC = (function() {
                   _color = message.color;
                   console.log(_color);
                 }else if (message.type === "restart"){
+                    console.log("restart message");
                   this.restart();
 
                 }else if(message.type ==="won"){
+                    console.log("won message");
                   this.vel.multiply(0);
                   this.won = true;
                 }else if(message.type ==="lost"){
-                  console.log("received");
+                  console.log("lost message");
                   this.vel.multiply(0);
                   this.lost = true;
                 }
