@@ -73,7 +73,7 @@ class Player extends MMOC{
     if(this.timer === 2){
       this.timer = 0;
       this.trail.push(this.loc.copy());//pushes copy of location vector to trail
-      if(this.trail.length > 200)
+      if(this.trail.length > 100)
           this.trail.shift();     // remove first element of trail
       if(this.ws.readyState == 1 ) this.sendPlayerData();
     }
